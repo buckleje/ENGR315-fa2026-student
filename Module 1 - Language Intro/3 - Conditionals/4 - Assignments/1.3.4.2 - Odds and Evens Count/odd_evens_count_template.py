@@ -29,3 +29,16 @@ num_evens = 0
 num_odds = 0
 
 ### YOUR CODE BEGINS HERE ###
+
+
+for element in nums:
+    if element % 2 == 0: # If the number is even, add to the even counter
+        num_evens += 1
+    elif element % 2 == 1: # If the number is odd, add to the odd counter
+        num_odds += 1
+    else: print('This should not appear.') # There should never be a number that isn't even or odd
+
+
+# Print number of even and odd numbers
+print('Even numbers: ', num_evens)
+print('Odd numbers: ', num_odds)

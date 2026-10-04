@@ -29,6 +29,10 @@ dot_product = 0
 
 ### Your code here
 
+for i in range(fixed_length):   # run through the loop as many times as there are values in the fixed length
+    dot_product += vector_a[i] * vector_b[i]    # add the product of the ith entry for both vectors to the dot product variable
+
+
 """
 Step 3: Calculate the error of your dot_product compared with numpy's solution
 """

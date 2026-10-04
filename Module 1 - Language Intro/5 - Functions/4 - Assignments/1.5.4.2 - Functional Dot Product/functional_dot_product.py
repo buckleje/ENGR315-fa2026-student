@@ -20,9 +20,14 @@ def dot_product(a,b):
 
     ### YOUR CODE HERE ###
 
+    dp_result = 0 # set initial dot product variable to 0
+
+    for i in range(len(a)):   # run through the loop as many times as there are values in a
+        dp_result += a[i] * b[i]    # add the product of the ith entry for both vectors to the dot product variable
+
 
     ### CHANGE THIS RETURN VALUE. IT IS HERE SO THE CODE DOES NOT ERROR
-    return None
+    return dp_result
 
 """
 Step 1: Generate two "vectors" of equal length but full of random values

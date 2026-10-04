@@ -13,14 +13,14 @@ pi_estimate = 0
 Step 1: Declare and initialize all the values for the Gauss-Legendre algorithm
 """
 
-# modify these lines to correct set the variable values
-a = None
-b = None
-t = None
-p = None
+# starting values for the Gauss-Legendre Algorith
+a = 1
+b = 1 / (math.sqrt(2))
+t = 1/4
+p = 1
 
 # perform 10 iterations of this loop
-for i in range(1, 10):
+for i in range(1, 11):
     """
     Step 2: Update each variable based upon the algorithm. Take care to ensure
     the order of operations and dependencies among calculations is respected. You
@@ -28,6 +28,18 @@ for i in range(1, 10):
     """
 
     ### YOUR CODE HERE ###
+    # calculate new values of each variable using the old values
+    a_new = (a + b)/2
+    b_new = math.sqrt(a * b)
+    t_new = t - p * (a - a_new)**2
+    p_new = 2 * p
+
+    # update variables
+    a = a_new
+    b = b_new
+    t = t_new
+    p = p_new
+
 
     # print out the current loop iteration. This is present to have something in the loop.
     print("Loop Iteration: ", i)
@@ -36,8 +48,8 @@ for i in range(1, 10):
 Step 3: After iterating 10 times, calculate the final value for PI
 """
 
-# modify this line below to estimate PI
-pi_estimate = None
+# use the 10th loop values to calculate pi
+pi_estimate = ((a + b)**2) / (4 * t)
 
-print("Final estimate for PI: ", pi_estimate)
-print("Error on estimate: ", abs(pi_estimate - math.pi))
+print("Final estimate for PI: ", pi_estimate) # print final pi calculation
+print("Error on estimate: ", abs(pi_estimate - math.pi)) # print the error between estimation and the actual pi value

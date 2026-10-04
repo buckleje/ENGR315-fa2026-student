@@ -37,7 +37,16 @@ Step 2: Inside the FOR loop, examine the contents of nums. If the
 value is even, place it in the evens_list. If it is odd, place it in the 
 odds_list
 """
+# run through all numbers stored in nums
+for num in nums:
+    if num % 2 == 0:
+        evens_list.append(num)  # if number is even, add it to the evens list
+    elif num % 2 == 1:
+        odds_list.append(num)   # if number is odd, add it to the odds list
+    else:
+        print('This should never appear')
 
+# print the even and odd lists
 print("The evens list contains: ", evens_list)
 print("The odds list contains: ", odds_list)
 
