@@ -124,6 +124,10 @@ if __name__ == "__main__":
     # Step #2: Calculate basic parameters such as the ultimate tensile strength
     # and fracture strain
 
+    ultimate_tensile_stress = np.max(stress)
+
+    fracture_strain = np.max(strain)
+
     # calculate easy variables
     ultimate_tensile_strength, fracture_strain = calculate_max_strength_strain(strain, stress)
 
