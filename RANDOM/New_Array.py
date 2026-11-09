@@ -1,13 +1,11 @@
-import numpy
+import numpy as np
 
-array1 = numpy.array([[11, 12, 13],[21, 22, 23], [31, 32, 33]])
+A = np.array([3, 0, 1;
+             0, 4, -1;
+             -5, -5, 20])
 
-print(array1)
+b = np.array([5. -8, 0])
 
-print(array1[1,1])
+print(A)
 
-print(array1[:,2])
 
-print(array1[0,:2])
-
-print(array1[1:,:2])

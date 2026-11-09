@@ -20,7 +20,8 @@ import numpy as np
 import pandas as pd
 
 import matplotlib.pyplot as plt
-from scipy.stats import ttest_1samp, norm, chisquare, t
+from scipy.stats import ttest_1samp, norm, chisquare
+import scipy.stats as stats
 
 # Load RSI data
 df = pd.read_csv("../../data/drop-jump/all_participant_data_rsi.csv")
@@ -129,6 +130,10 @@ force_plate_f_std = participant_F["force_plate_rsi"].std()
 accelerometer_f_mean = participant_F["accelerometer_rsi"].mean()
 accelerometer_f_std = participant_F["accelerometer_rsi"].std()
 
+# Print the means for the accelerometer and force plate data for participant F to have more context for the confidence intervals
+print("Participant F force plate mean: ", force_plate_f_mean)
+print("Participant F accelerometer mean: ", accelerometer_f_mean)
+
 # Calculate the number of trials for Participant F
 n = len(participant_F)
 
@@ -136,8 +141,8 @@ n = len(participant_F)
 force_plate_f_error = force_plate_f_std / np.sqrt(n)
 accelerometer_f_error = accelerometer_f_std / np.sqrt(n)
 
-# Calculate the critical t-value
-t_critical = t.ppf(0.975, df=n-1)
+# Calculate the critical t-value. Use 0.975 because t.ppf() finds the t value corresponding to the probability on its left.
+t_critical = stats.t.ppf(0.975, df=n-1) # Using 0.975 accounts for that extra 2.5% on the far left that will be outside out confidence interval
 
 # Force plate confidence interval
 force_plate_lower = force_plate_f_mean - t_critical * force_plate_f_error
